@@ -14,13 +14,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    /** Called when the user taps the Send button */
+    /** Called when the user taps the Send button
     fun sendMessage(view: View) {
         val editText = findViewById<EditText>(R.id.editText)
         val message = editText.text.toString()
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
+        startActivity(intent)
+    }*/
+    fun startMap(view: View){
+        val intent = Intent(this, MapActivity::class.java)
+        startActivity(intent)
+    }
+    fun startTime(view: View){
+        val intent = Intent(this, TimeActivity::class.java)
+        startActivity(intent)
+    }
+    fun startMain(view: View){
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }

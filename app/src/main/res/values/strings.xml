@@ -2,4 +2,6 @@
     <string name="app_name">My First App</string>
     <string name="open_map">Map</string>
     <string name="open_time">Time</string>
+    <string name="submit_time">Submit</string>
+    <string name="reminder_time">Reminder text</string>
 </resources>

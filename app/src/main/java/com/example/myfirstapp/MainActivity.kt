@@ -5,34 +5,41 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import kotlinx.android.synthetic.main.activity_main.*
 
-const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var fabOpened = false
+
+        fab_map.setOnClickListener{
+            val intent = Intent(applicationContext, MapActivity::class.java)
+            startActivity(intent)
+        }
+        fab_time.setOnClickListener{
+            val intent = Intent(applicationContext, TimeActivity::class.java)
+            startActivity(intent)
+        }
+        fab.setOnClickListener{
+            if(!fabOpened){
+                fabOpened = true
+                fab_map.animate().translationY(-resources.getDimension(R.dimen.standard_66))
+                fab_time.animate().translationY(-resources.getDimension(R.dimen.standard_116))
+            } else{
+                fabOpened = false
+                fab_map.animate().translationY(0f)
+                fab_time.animate().translationY(0f)
+            }
+        }
+        val data = arrayOf("oulu", "tampere","helsinki")
+        val remindAdapter = ReminderAdapter(applicationContext, data)
+        list.adapter = remindAdapter
+
+
     }
 
-    /** Called when the user taps the Send button
-    fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.editText)
-        val message = editText.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
-    }*/
-    fun startMap(view: View){
-        val intent = Intent(this, MapActivity::class.java)
-        startActivity(intent)
-    }
-    fun startTime(view: View){
-        val intent = Intent(this, TimeActivity::class.java)
-        startActivity(intent)
-    }
-    fun startMain(view: View){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
+
 }

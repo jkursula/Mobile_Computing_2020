@@ -4,4 +4,6 @@
     <string name="open_time">Time</string>
     <string name="submit_time">Submit</string>
     <string name="reminder_time">Reminder text</string>
+    <string name="create_map">Create</string>
+
 </resources>

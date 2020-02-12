@@ -60,5 +60,5 @@
         android:text="@string/submit_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_message" />
+        app:layout_constraintTop_toBottomOf="@+id/reminder_message" />
 </androidx.constraintlayout.widget.ConstraintLayout>
